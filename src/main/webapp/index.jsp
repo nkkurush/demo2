@@ -2,12 +2,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>JSP - Test</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
+<h1>
+    TESTING JSP
 </h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<p>
+    <%@ page import="java.util.Date,com.example.demo2.TestClas" %>
+    <%TestClas testClas = new TestClas(); %>
+    <%=testClas.getInfo()%>
+    <br/>
+    <%= "String FRom JSP" %>
+    <br/>
+    <%= new Date()%>
+</p>
 </body>
 </html>

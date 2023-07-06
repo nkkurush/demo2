@@ -12,11 +12,19 @@ public class HelloServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         response.setContentType("text/html");
-        message = "IT IS FROM SERVLET";
+//        String name = request.getParameter("name");
+//        String surname = request.getParameter("surname");
+        HttpSession session = request.getSession();
+        Integer count = (Integer)session.getAttribute("count");
+        if(count == null){
+            session.setAttribute("count",1);
+        }else{
+            session.setAttribute("count",count+1);
+        }
         // Hello
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
+        out.println("<h1>" + "Count=  " + session.getAttribute("count") + "</h1>");
         out.println("</body></html>");
     }
 
